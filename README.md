@@ -38,6 +38,9 @@ You can use this logger in `logging` module by adding `LoggingHandler` from `log
 
 Example usage:
 ```py
+import logging # import logging module
+from logger import Logger # import this logger
+
 l = Logger() # create this logger instance
 logging.basicConfig(level=logging.DEBUG, handlers=[LoggingHandler(l)]) # add LoggingHandler as handler
 
