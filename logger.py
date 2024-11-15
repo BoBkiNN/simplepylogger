@@ -52,7 +52,7 @@ class LogEvent:
         exc: Exception | None = None
         ls: list[str] = []
         for v in objs:
-            if level is not LogLevel.INFO and isinstance(v, Exception) and exc is None:
+            if isinstance(v, Exception) and exc is None:
                 exc = v
             else:
                 ls.append(str(v))
