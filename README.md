@@ -18,6 +18,8 @@
 - Enable/Disable colored output in console
 - Display exception tracebacks
 
+See `Logger.__init__` method for all options
+
 ### Example:
 ```py
 l = Logger(debug=True) # you can enable debug and set other params using constructor
@@ -29,4 +31,16 @@ try:
     foo()
 except Exception as e:
     l.error("Foo", e) # print exception traceback on error
+```
+
+### Integration with `logging` module:
+You can use this logger in `logging` module by adding `LoggingHandler` from `logging_support.py`
+
+Example usage:
+```py
+l = Logger() # create this logger instance
+logging.basicConfig(level=logging.DEBUG, handlers=[LoggingHandler(l)]) # add LoggingHandler as handler
+
+# now anyone who will using logging functons will cause message go to this Logger
+logging.info("Hello from logging module!")
 ```
